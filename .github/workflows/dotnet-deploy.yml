@@ -32,14 +32,14 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration Release --filter "FullyQualifiedName!~AcceptanceTests"
       env:
-        ConnectionStrings__DefaultConnection: Server=.;Database=CleanArchitectureDb-Test;User=sa;Password=Your_password123;MultipleActiveResultSets=true;
+        ConnectionStrings__DefaultConnection: Server=.;Database=OkoulChallengeDb-Test;User=sa;Password=Your_password123;MultipleActiveResultSets=true;
     - name: Publish
       run: dotnet publish src/WebUI/WebUI.csproj --configuration Release --output website
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.2.2
       with:
         name: website
-        path: /home/runner/work/CleanArchitecture/CleanArchitecture/website/**
+        path: /home/runner/work/OkoulChallenge/OkoulChallenge/website/**
         if-no-files-found: error
 
   deploy-staging:
